@@ -1,1 +1,20 @@
 WARBLER FEATURES OUTLINE
+
+**** Description****
+The application will be used to allow users to send warbles which are 160 character blurbs about whats on their mind, important statements, links etc to be able to share with other users.
+
+****Features******
+-Sign up as a member to gain access to all warbles.
+-Log in and Log out when they return to the application.
+-View all warbles sorted by newest when user logs in.
+  -Filter view by their own.
+-Their own Warbles: Add, edit, delete
+-Others Warbles: View.
+-Others Profiles: View.
+-Their Own Profiles: edit, delete.
+
+***Future Features****
+-upload profile images.
+-Followers count
+-List of users following
+-Filter by following.

@@ -1,1 +1,14 @@
 WARBLER SCHEMA DESIGN
+
+***Users****
+-email > string > required > unique
+-password > string > required
+-username > string > required > unique
+-profileImageURL > string >
+-messages > objectID
+
+
+***Warbles****
+-text > string > required > maxLength=160
+-user > objectID
+-timestamp
