@@ -3,6 +3,7 @@ const express = require("express"),
   cors = require("cors"),
   morgan = require("morgan"),
   bodyParser = require("body-parser");
+errorHandler = require("./handlers/error");
 // XXXRoutes = require("./routes");
 
 const app = express();
@@ -24,13 +25,8 @@ app.use((req, res, next) => {
   err.status = 404;
   next(err);
 });
-app.use((err, req, res, next) => {
-  res.status(err.status || 500);
-  res.send({
-    message: err.message,
-    error: err
-  });
-});
+
+app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log(`Server on port: ${PORT}`);
