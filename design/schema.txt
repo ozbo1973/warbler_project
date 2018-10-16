@@ -11,4 +11,4 @@ WARBLER SCHEMA DESIGN
 ***Warbles****
 -text > string > required > maxLength=160
 -user > objectID
--timestamp
+-timestamps
