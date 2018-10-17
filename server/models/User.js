@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
   profileImageURL: {
     type: String
   },
-  messages: [
+  warbles: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Warbler"
