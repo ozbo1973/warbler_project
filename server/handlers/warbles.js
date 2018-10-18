@@ -4,6 +4,20 @@ const db = require("../models");
 
 exports.getWarbles = async function(req, res, next) {
   try {
+    let warbles = db.Warble.find()
+      .sort({ createdAt: "desc" })
+      .populate("user", {
+        username: true,
+        profileImageURL: true
+      });
+    return res.status(200).json(warbles);
+  } catch (err) {
+    return next(err);
+  }
+};
+
+exports.showWarble = async function(req, res, next) {
+  try {
     let warbles = await db.Warble.findById(req.params.warble_id);
     return res.status(200).json(warbles);
   } catch (err) {

@@ -5,7 +5,10 @@ const express = require("express"),
   morgan = require("morgan"),
   bodyParser = require("body-parser"),
   errorHandler = require("./handlers/error"),
-  authRoutes = require("./routes/auth");
+  authRoutes = require("./routes/auth"),
+  warbleRoutes = require("./routes/warbles"),
+  { getWarbles } = require("./handlers/warbles"),
+  { loginRequired, ensureCorrectUser } = require("./middleware/auth");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -16,9 +19,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/api/auth", authRoutes);
+app.use(
+  "/api/users/:user_id/warbles",
+  loginRequired,
+  ensureCorrectUser,
+  warbleRoutes
+);
+
+app.get("/api/warbles", loginRequired, getWarbles);
 
 app.get("/", (req, res) => {
-  res.send("backend WARBLER");
+  res.send("WARBLER");
 });
 
 //error handling
