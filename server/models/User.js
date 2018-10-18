@@ -1,5 +1,6 @@
 const mongoose = require("mongoose"),
-  bcrypt = require("bcryptjs");
+  bcrypt = require("bcryptjs"),
+  Warble = require("./Warble");
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -34,6 +35,20 @@ userSchema.pre("save", async function(next) {
     }
     let hashedPassword = await bcrypt.hash(this.password, 10);
     this.password = hashedPassword;
+    return next();
+  } catch (err) {
+    return next(err);
+  }
+});
+
+userSchema.pre("remove", async function(next) {
+  try {
+    //query warbles where user equals user being deleted.
+    let warbles = await Warble.remove({ user: this._id });
+    //remove all warbles from above.
+    console.log(warbles);
+    //Warble.remove(warbles);
+    //return next
     return next();
   } catch (err) {
     return next(err);

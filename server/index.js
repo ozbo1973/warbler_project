@@ -7,6 +7,7 @@ const express = require("express"),
   errorHandler = require("./handlers/error"),
   authRoutes = require("./routes/auth"),
   warbleRoutes = require("./routes/warbles"),
+  userRoutes = require("./routes/users"),
   { getWarbles } = require("./handlers/warbles"),
   { loginRequired, ensureCorrectUser } = require("./middleware/auth");
 
@@ -19,6 +20,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/api/auth", authRoutes);
+app.use(
+  "/api/users/:user_id/profile",
+  loginRequired,
+  ensureCorrectUser,
+  userRoutes
+);
 app.use(
   "/api/users/:user_id/warbles",
   loginRequired,
