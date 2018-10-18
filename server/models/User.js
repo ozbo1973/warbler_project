@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema({
   warbles: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Warbler"
+      ref: "Warble"
     }
   ]
 });

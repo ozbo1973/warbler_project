@@ -22,7 +22,7 @@ exports.ensureCorrectUser = function(req, res, next) {
   try {
     let token = req.headers.authorization.split(" ")[1];
     jwt.verify(token, process.env.SECRET_KEY, function(err, decoded) {
-      if (decoded && decoded.id === req.params.userId) {
+      if (decoded && decoded.id === req.params.user_id) {
         return next();
       }
       return next(logError(errMessage));

@@ -38,7 +38,7 @@ exports.signin = async function(req, res, next) {
     let isMatch = user.comparePassword(req.body.password);
     if (isMatch) {
       let token = getToken(user);
-      return res.send(200).json({
+      return res.status(200).json({
         id,
         profileImageURL,
         username,

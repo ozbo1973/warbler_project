@@ -21,7 +21,7 @@ const warbleSchema = new mongoose.Schema(
 warbleSchema.pre("remove", async function(next) {
   try {
     let user = await User.findById(this.user);
-    user.messages.remove(this.id);
+    user.warbles.remove(this.id);
     await user.save();
     return next();
   } catch (err) {

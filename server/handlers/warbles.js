@@ -4,7 +4,7 @@ const db = require("../models");
 
 exports.getWarbles = async function(req, res, next) {
   try {
-    let warbles = db.Warble.find()
+    let warbles = await db.Warble.find()
       .sort({ createdAt: "desc" })
       .populate("user", {
         username: true,
@@ -27,13 +27,13 @@ exports.showWarble = async function(req, res, next) {
 
 exports.createWarble = async function(req, res, next) {
   try {
-    let { text } = req.body.text;
-    let { userId } = req.params.user_id;
+    let { text } = req.body;
+    let { user_id } = req.params;
     let warble = await db.Warble.create({
       text,
-      user: userId
+      user: user_id
     });
-    let foundUser = await db.User.findById(userId);
+    let foundUser = await db.User.findById(user_id);
     foundUser.warbles.push(warble.id);
     await foundUser.save();
     let foundWarble = await db.Warble.findById(warble.id).populate("user", {
