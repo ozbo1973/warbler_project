@@ -8,7 +8,7 @@ const Main = props => {
   return (
     <div>
       <Switch>
-        <Route exact path="/" render={() => <Homepage {...props} />} />
+        <Route exact path="/" render={props => <Homepage {...props} />} />
       </Switch>
     </div>
   );
