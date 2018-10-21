@@ -1,5 +1,5 @@
 //css styles for Navbar.
-
+import { main_btns } from "./MainCss";
 const NavbarCss = {
   root: {
     flexGrow: 1,
@@ -8,7 +8,8 @@ const NavbarCss = {
   nav_Brand: {
     flexGrow: 1,
     marginLeft: "2rem"
-  }
+  },
+  nav_btn: main_btns
 };
 
 export default NavbarCss;

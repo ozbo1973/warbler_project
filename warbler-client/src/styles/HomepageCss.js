@@ -1,4 +1,6 @@
+import { main_btns } from "./MainCss";
 import Image from "../images/warbler-hero.jpg";
+
 export default theme => ({
   root: {
     flexGrow: 1
@@ -29,9 +31,5 @@ export default theme => ({
     fontWeight: "bold",
     textShadow: "5px 0 8px black"
   },
-  btn: {
-    background: "#2196F3",
-    color: "#fff",
-    marginTop: "1rem"
-  }
+  btn: main_btns
 });

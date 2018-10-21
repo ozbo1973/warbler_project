@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -15,23 +15,14 @@ class Navbar extends Component {
       <div>
         <AppBar className={classes.root} position="static">
           <Toolbar>
-            <Typography
-              className={classes.nav_Brand}
-              onClick={() => this.props.history.push("/")}
-            >
+            <Typography className={classes.nav_Brand} component={Link} to="/">
               Warbler Logo Here
             </Typography>
             <div className="nav-buttons">
-              <Button
-                onClick={() => this.props.history.push("/signup")}
-                color="inherit"
-              >
+              <Button className={classes.nav_btn} component={Link} to="/signup">
                 SignUp
               </Button>{" "}
-              <Button
-                onClick={() => this.props.history.push("/signin")}
-                color="inherit"
-              >
+              <Button className={classes.nav_btn} component={Link} to="/signin">
                 LogIn
               </Button>
             </div>
@@ -48,6 +39,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default withRouter(
-  withStyles(NavbarCss, connect(mapStateToProps))(Navbar)
-);
+export default withStyles(NavbarCss, connect(mapStateToProps))(Navbar);

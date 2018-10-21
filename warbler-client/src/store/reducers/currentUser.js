@@ -7,7 +7,6 @@ const initialState = {
 };
 
 function rootReducer(state = initialState, action) {
-  let newState = state;
   switch (action.type) {
     case SET_CURRENT_USER:
       return {
