@@ -35,7 +35,7 @@ exports.signin = async function(req, res, next) {
   try {
     let user = await db.User.findOne({ email: req.body.email });
     let { id, username, profileImageURL } = user;
-    let isMatch = user.comparePassword(req.body.password);
+    let isMatch = await user.comparePassword(req.body.password);
     if (isMatch) {
       let token = getToken(user);
       return res.status(200).json({

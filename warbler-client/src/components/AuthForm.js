@@ -42,7 +42,10 @@ class AuthForm extends Component {
       removeError,
       history
     } = this.props;
-    let whichKeys = signup ? Object.keys(this.state) : ["email", "password"];
+    let login = Object.keys(this.state).filter(
+      k => k === "email" || k === "password"
+    );
+    let whichKeys = signup ? Object.keys(this.state) : login;
     let inputs = whichKeys.map(ctrl => {
       let type = "text";
       if (ctrl === "password") {
