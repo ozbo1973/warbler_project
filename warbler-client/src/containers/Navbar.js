@@ -23,12 +23,12 @@ class Navbar extends Component {
             <Typography className={classes.nav_Brand} component={Link} to="/">
               Warbler Logo Here
             </Typography>
-            {this.props.currentUser.isAuthenticated ? (
+            {currentUser.isAuthenticated ? (
               <div className="nav-buttons">
                 <Button
                   className={classes.nav_btn}
                   component={Link}
-                  to="/new_message"
+                  to={"/new_message"}
                 >
                   New Message
                 </Button>

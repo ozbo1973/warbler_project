@@ -8,7 +8,7 @@ import Button from "@material-ui/core/Button";
 import Input from "@material-ui/core/Input";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
-import AuthFormCss from "../styles/AuthFormCss";
+import MainFormCss from "../styles/MainFormCss";
 
 class AuthForm extends Component {
   constructor(props) {
@@ -86,4 +86,4 @@ class AuthForm extends Component {
   }
 }
 
-export default withStyles(AuthFormCss)(AuthForm);
+export default withStyles(MainFormCss)(AuthForm);
