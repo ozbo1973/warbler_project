@@ -2,29 +2,22 @@ import { main_btns } from "./MainCss";
 import Image from "../images/warbler-hero.jpg";
 
 export default theme => ({
-  root: {
-    flexGrow: 1
-  },
-  paper: {
-    ...theme.mixins.gutters(),
-    margin: "1rem",
-    padding: theme.spacing.unit * 2,
+  landing_root: {
+    flexGrow: 1,
     textAlign: "center",
-    color: theme.palette.text.secondary,
-    height: "100vh",
     backgroundImage: `url(${Image})`,
     backgroundPosition: "center center",
-    backgroundSize: "cover"
-  },
-  hero: {
-    position: "relative"
+    backgroundSize: "cover",
+    position: "relative",
+    height: "100vh",
+    padding: "0"
   },
   hero_item: {
     position: "absolute",
     top: "50%",
     left: "50%",
     marginLeft: "-223.725px",
-    marginTop: "124px"
+    marginTop: "-124px"
   },
   hero_text: {
     color: "white",

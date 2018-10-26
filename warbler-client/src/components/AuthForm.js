@@ -3,6 +3,7 @@ import ErrorMessage from "./ErrorMessage";
 import { toProperCase } from "../services/miscFX";
 import { withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Input from "@material-ui/core/Input";
@@ -66,8 +67,8 @@ class AuthForm extends Component {
     });
     history.listen(() => removeError());
     return (
-      <div className={classes.form_root}>
-        <Paper className={classes.paper} elevation={1}>
+      <Grid className={classes.form_root} container direction="column">
+        <Paper className={classes.form_paper} elevation={1}>
           <form className={classes.form} onSubmit={this.handleOnSubmit}>
             <Typography className={classes.heading} gutterBottom variant={"h3"}>
               {heading}
@@ -81,7 +82,7 @@ class AuthForm extends Component {
             </Button>
           </form>
         </Paper>
-      </div>
+      </Grid>
     );
   }
 }

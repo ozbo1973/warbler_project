@@ -8,6 +8,9 @@ import { setCurrentUser } from "../store/actions/auth";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Navbar from "./Navbar";
 import Main from "./Main";
+import { withStyles } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+import AppCss from "../styles/AppCss";
 
 const store = configureStore();
 
@@ -21,13 +24,16 @@ if (localStorage.jwtToken) {
 }
 
 const App = props => {
+  let { classes } = props;
   return (
     <Provider store={store}>
       <Router>
         <CssBaseline>
           <div className="onboarding">
             <Navbar />
-            <Main />
+            <Paper className={classes.root} elevation={1}>
+              <Main />
+            </Paper>
           </div>
         </CssBaseline>
       </Router>
@@ -35,4 +41,4 @@ const App = props => {
   );
 };
 
-export default App;
+export default withStyles(AppCss)(App);

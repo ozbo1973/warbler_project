@@ -1,19 +1,18 @@
-import { main_btns, main_form_root } from "./MainCss";
+import { main_btns, main_background } from "./MainCss";
 
 export default theme => ({
-  form_root: main_form_root,
-  paper: {
-    ...theme.mixins.gutters(),
+  form_root: main_background,
+  form_paper: {
     margin: "1rem auto",
-    padding: theme.spacing.unit * 2,
     textAlign: "center",
     color: theme.palette.text.secondary,
-    maxWidth: "60%"
+    minWidth: "75%",
+    padding: "1rem"
   },
   form: {
     display: "flex",
     flexDirection: "column",
-    maxWidth: "50%",
+    maxWidth: "65%",
     margin: "0 auto"
   },
   heading: {

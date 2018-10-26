@@ -6,6 +6,6 @@ export default function(state = [], action) {
     case LOAD_MESSAGES:
       return [...action.messages];
     default:
-      return { ...state };
+      return state;
   }
 }

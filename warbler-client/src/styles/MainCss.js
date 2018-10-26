@@ -8,11 +8,23 @@ export const main_btns = {
   }
 };
 
+export const main_background = {
+  backgroundColor: "#C4C4BE",
+  height: "100vh"
+};
+
 export const main_form_root = {
   display: "column",
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
   backgroundColor: "#C4C4BE",
-  padding: "3rem"
+  padding: "1rem"
+};
+
+export const paper_container = {
+  display: "flex",
+  flexDirection: "column",
+  margin: ".5rem",
+  height: "100vh"
 };

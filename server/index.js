@@ -33,7 +33,7 @@ app.use(
   warbleRoutes
 );
 
-app.get("/api/warbles", loginRequired, getWarbles);
+app.use("/api/warbles", loginRequired, getWarbles);
 
 app.get("/", (req, res) => {
   res.send("WARBLER");
