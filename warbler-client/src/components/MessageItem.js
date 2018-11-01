@@ -9,7 +9,14 @@ import Avatar from "@material-ui/core/Avatar";
 import Divider from "@material-ui/core/Divider";
 import default_profileImg from "../images/default-profile-image.jpg";
 
-const MessageItem = ({ username, text, profileImageURL, createDate }) => {
+const MessageItem = ({
+  username,
+  text,
+  profileImageURL,
+  createDate,
+  deleteMessage,
+  isCorrectUser
+}) => {
   let img = profileImageURL || default_profileImg;
   return (
     <div>
@@ -24,9 +31,11 @@ const MessageItem = ({ username, text, profileImageURL, createDate }) => {
           }
           secondary={<span>{text}</span>}
         />
-        <ListItemSecondaryAction>
-          <Button>Delete</Button>
-        </ListItemSecondaryAction>
+        {isCorrectUser && (
+          <ListItemSecondaryAction>
+            <Button onClick={deleteMessage}>Delete</Button>
+          </ListItemSecondaryAction>
+        )}
       </ListItem>
       <li>
         <Divider inset />

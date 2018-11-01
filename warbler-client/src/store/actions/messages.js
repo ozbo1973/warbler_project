@@ -7,6 +7,11 @@ export const loadMessages = messages => ({
   messages
 });
 
+export const removeMessages = id => ({
+  type: REMOVE_MESSAGES,
+  id
+});
+
 export const fetchMessages = () => {
   return dispatch => {
     return apiCall("get", "/api/warbles")
@@ -16,6 +21,14 @@ export const fetchMessages = () => {
       .catch(err => {
         dispatch(addError(err.message));
       });
+  };
+};
+
+export const deleteMessage = (user_id, message_id) => {
+  return dispatch => {
+    apiCall("delete", `/api/users/${user_id}/warbles/${message_id}`)
+      .then(() => dispatch(removeMessages(message_id)))
+      .catch(err => dispatch(addError(err)));
   };
 };
 

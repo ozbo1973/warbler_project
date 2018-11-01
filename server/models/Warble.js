@@ -20,6 +20,7 @@ const warbleSchema = new mongoose.Schema(
 
 warbleSchema.pre("remove", async function(next) {
   try {
+    console.log(User);
     let user = await User.findById(this.user);
     user.warbles.remove(this.id);
     await user.save();
