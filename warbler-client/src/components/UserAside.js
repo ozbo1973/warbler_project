@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Image from "../images/default-profile-image.jpg";
 import { withStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -30,7 +31,9 @@ const UserAside = ({ classes, profileImageURL, username }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Edit</Button>
+        <Button component={Link} to="/users/profile" size="small">
+          Edit
+        </Button>
         <Button size="small">Delete</Button>
       </CardActions>
     </Card>

@@ -6,6 +6,7 @@ import { authUser } from "../store/actions/auth";
 import Homepage from "../components/Homepage";
 import AuthForm from "../components/AuthForm";
 import MessageForm from "../components/MessageForm";
+import EditProfileForm from "../components/EditProfileForm";
 import withAuth from "../hocs/withAuth";
 
 const Main = props => {
@@ -48,6 +49,7 @@ const Main = props => {
           )}
         />
         <Route path="/new_message" component={withAuth(MessageForm)} />
+        <Route path="/users/profile" component={withAuth(EditProfileForm)} />
       </Switch>
     </div>
   );
