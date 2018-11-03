@@ -1,5 +1,5 @@
 //reducers/currentUser file.
-import { SET_CURRENT_USER, EDIT_PROFILE } from "../actionTypes";
+import { SET_CURRENT_USER, EDIT_PROFILE, DELETE_PROFILE } from "../actionTypes";
 
 const initialState = {
   isAuthenticated: false,
@@ -15,6 +15,11 @@ export default function(state = initialState, action) {
       };
     case EDIT_PROFILE:
       return { ...state, user: action.userData };
+    case DELETE_PROFILE:
+      return {
+        isAuthenticated: false,
+        user: {}
+      };
     default:
       return { ...state };
   }

@@ -34,7 +34,9 @@ const UserAside = ({ classes, profileImageURL, username }) => {
         <Button component={Link} to="/users/profile" size="small">
           Edit
         </Button>
-        <Button size="small">Delete</Button>
+        <Button component={Link} to="/users/profile/delete" size="small">
+          Delete
+        </Button>
       </CardActions>
     </Card>
   );
