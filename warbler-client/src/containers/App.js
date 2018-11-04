@@ -31,7 +31,7 @@ const App = props => {
         <CssBaseline>
           <div className="onboarding">
             <Navbar />
-            <Paper className={classes.root} elevation={1}>
+            <Paper className={classes.app_root} elevation={1}>
               <Main />
             </Paper>
           </div>

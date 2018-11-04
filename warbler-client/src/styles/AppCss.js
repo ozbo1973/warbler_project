@@ -1,8 +1,8 @@
 import { paper_container } from "./MainCss";
 
 export default theme => ({
-  root: paper_container,
-  gutters: {
+  app_root: paper_container,
+  app_gutters: {
     ...theme.mixins.gutters()
   }
 });
