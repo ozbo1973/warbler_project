@@ -9,15 +9,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-
-const UserAsideCss = {
-  useraside_card: {
-    maxWidth: "300px"
-  },
-  useraside_img: {
-    height: "140px"
-  }
-};
+import UserAsideCss from "../styles/UserAsideCss";
 
 const UserAside = ({ classes, profileImageURL, username }) => {
   let img = profileImageURL || Image;
@@ -26,15 +18,29 @@ const UserAside = ({ classes, profileImageURL, username }) => {
     <Card className={classes.useraside_card}>
       <CardMedia className={classes.useraside_img} image={img} />
       <CardContent>
-        <Typography gutterBottom component="h4">
+        <Typography
+          className={classes.useraside_title}
+          gutterBottom
+          component="h4"
+        >
           {username}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button component={Link} to="/users/profile" size="small">
+      <CardActions className={classes.useraside_cardaction}>
+        <Button
+          className={`${classes.useraside_btn} ${classes.useraside_btn_other}`}
+          component={Link}
+          to="/users/profile"
+          size="small"
+        >
           Edit
         </Button>
-        <Button component={Link} to="/users/profile/delete" size="small">
+        <Button
+          className={`${classes.useraside_btn} ${classes.useraside_btn_other}`}
+          component={Link}
+          to="/users/profile/delete"
+          size="small"
+        >
           Delete
         </Button>
       </CardActions>
