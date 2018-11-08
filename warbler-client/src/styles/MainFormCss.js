@@ -21,5 +21,8 @@ export default theme => ({
   controls: {
     margin: "1rem 0"
   },
-  btn: main_btns
+  btn: main_btns,
+  form_btn_spacing: {
+    margin: "1.5rem"
+  }
 });

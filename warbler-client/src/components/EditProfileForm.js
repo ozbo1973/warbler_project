@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { toProperCase } from "../services/miscFX";
 import ErrorMessage from "./ErrorMessage";
 import { updateProfile } from "../store/actions/users";
+
 import { withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
@@ -31,9 +32,15 @@ class EditProfileForm extends Component {
     });
   };
 
+  handleOnCancel = e => {
+    e.preventDefault();
+    this.props.history.push("/");
+  };
+
   render() {
     let { classes } = this.props;
-    let formFields = Object.keys(this.state).map(ctrl => (
+    let fields = Object.keys(this.state).filter(k => k !== "id" && k !== "iat");
+    let formFields = fields.map(ctrl => (
       <FormControl key={ctrl} className={classes.controls}>
         <InputLabel htmlFor={ctrl}>{toProperCase(ctrl)}:</InputLabel>
         <Input
@@ -57,10 +64,25 @@ class EditProfileForm extends Component {
             )}
 
             {formFields}
-
-            <Button type={"submit"} className={classes.btn} size={"medium"}>
-              Save
-            </Button>
+            <Grid container justify="center">
+              <Grid item>
+                <Button
+                  onClick={this.handleOnCancel}
+                  type="button"
+                  className={`${classes.btn} ${classes.form_btn_spacing}`}
+                  size={"medium"}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  type={"submit"}
+                  className={`${classes.btn} ${classes.form_btn_spacing}`}
+                  size={"medium"}
+                >
+                  Save
+                </Button>
+              </Grid>
+            </Grid>
           </form>
         </Paper>
       </Grid>
