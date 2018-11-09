@@ -2,14 +2,17 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { postNewMessage } from "../store/actions/messages";
 import ErrorMessage from "./ErrorMessage";
+
 import { withStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import Input from "@material-ui/core/Input";
-import FormControl from "@material-ui/core/FormControl";
-import InputLabel from "@material-ui/core/InputLabel";
+import {
+  Paper,
+  Grid,
+  Typography,
+  Button,
+  Input,
+  FormControl,
+  InputLabel
+} from "@material-ui/core";
 import MainFormCss from "../styles/MainFormCss";
 
 class MessageForm extends Component {
@@ -28,6 +31,12 @@ class MessageForm extends Component {
       [e.target.name]: e.target.value
     });
   };
+
+  handleOnCancel = e => {
+    e.preventDefault();
+    this.props.history.push("/");
+  };
+
   render() {
     let { error, classes } = this.props;
     return (
@@ -50,9 +59,23 @@ class MessageForm extends Component {
               />
             </FormControl>
 
-            <Button type={"submit"} className={classes.btn} size={"medium"}>
-              Add Warble
-            </Button>
+            <Grid justify="center" container spacing={16}>
+              <Grid item>
+                <Button type={"submit"} className={classes.btn} size={"medium"}>
+                  Add Warble
+                </Button>
+              </Grid>
+              <Grid item>
+                <Button
+                  onClick={this.handleOnCancel}
+                  type={"button"}
+                  className={classes.btn}
+                  size="medium"
+                >
+                  Cancel
+                </Button>
+              </Grid>
+            </Grid>
           </form>
         </Paper>
       </Grid>

@@ -22,6 +22,9 @@ export default theme => ({
     margin: "1rem 0"
   },
   btn: main_btns,
+  form_btn_center: {
+    margin: "0 auto"
+  },
   form_btn_spacing: {
     margin: "1.5rem"
   }
